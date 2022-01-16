@@ -14,7 +14,7 @@ create table _User(
 
 create table Department(
 
-	DID int primary key identity,
+	DID int primary key identity(100, 1),
 	Dname varchar(20),
 	Manager_ID int
 );
@@ -45,7 +45,7 @@ ALTER TABLE Department
 
 create table Course(
 
-	CID int primary key identity,
+	CID int primary key identity(200, 1),
 	Cname varchar(20),
 	Cduration int
 );
@@ -60,7 +60,7 @@ create table Topic(
 
 create table Question(
 
-	QID int primary key identity,
+	QID int primary key identity(300, 1),
 	QDescription varchar(max),
 	QType char,
 	Model_Answer char,
@@ -79,7 +79,7 @@ create table Choices(
 
 create table Exam(
 
-	EID int primary key,
+	EID int primary key identity(1000, 1),
 	Eduration int,
 	Exam_Date date
 );

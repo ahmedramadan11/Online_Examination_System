@@ -31,6 +31,14 @@ AS
 BEGIN
 	SET NOCOUNT ON;
 		insert into _User values(@userName,@password,@Fname,@Lname,@address,@Date_Birth,@User_Type)
+		declare @curr_Date date
+		declare @U_ID int
+		set @curr_Date = getdate()
+		set @U_ID = IDENT_CURRENT('dbo._User')
+		IF @User_Type = 's'
+			exec Insert_Student @U_ID
+		ELSE IF @User_Type = 'i'
+			exec Insert_Instructor @U_ID, 0, @curr_Date
 END
 GO
 
@@ -62,7 +70,14 @@ begin
 	if not exists(select [UID] from _User where [UID]=@userid)
 		select 'cant delete'
 	else
+		declare @user_Type char
+		select @user_Type=User_Type  from _User where UID = @userid
+		IF @User_Type = 's'
+				exec Delete_Student @userid
+			ELSE IF @User_Type = 'i'
+				exec Delete_Instructor @userid
 		delete from [dbo].[_User] where [UID]=@userid
+
 end 
 go
 
@@ -88,7 +103,7 @@ END
 
 GO
 
-CREATE PROC [dbo].[Insert_Student] @S_ID int, @D_ID int
+CREATE PROC [dbo].[Insert_Student] @S_ID int, @D_ID int = NULL
 AS
 BEGIN
 	IF not EXISTS (SELECT Student.SID FROM Student WHERE SID = @S_ID)
@@ -234,8 +249,7 @@ AS
 BEGIN
 	IF EXISTS(SELECT * FROM Department WHERE DID = @D_ID)
 		UPDATE Department 
-			SET DID = ISNULL(@D_ID, DID),
-				Dname = ISNULL(@Dname, Dname),
+			SET Dname = ISNULL(@Dname, Dname),
 				Manager_ID = ISNULL(@Dmanager, Manager_ID)
 			WHERE DID = @D_ID
 	ELSE
@@ -286,12 +300,12 @@ GO
 
 
 
-CREATE PROC [dbo].[Insert_Course] @CR_ID int, @CR_Name varchar(20), @CR_Duration int
+CREATE PROC [dbo].[Insert_Course] @CR_Name varchar(20), @CR_Duration int
 AS
 BEGIN
 	IF not EXISTS (SELECT Course.CID FROM Course WHERE Course.Cname = @CR_Name)
 		INSERT INTO Course
-			VALUES (@CR_ID, @CR_Name, @CR_Duration)
+			VALUES (@CR_Name, @CR_Duration)
 	ELSE
 		SELECT CONCAT('COURSE -> ', @CR_Name, ' Already Exists')
 END
@@ -419,14 +433,14 @@ END
 GO
 
 
-CREATE PROC [dbo].[Insert_Question] @Q_ID int, @Q_Desc varchar(max), @Q_Type char, @Q_Model_Answer char, @CR_ID int = NULL
+CREATE PROC [dbo].[Insert_Question] @Q_Desc varchar(max), @Q_Type char, @Q_Model_Answer char, @CR_ID int = NULL
 AS
 BEGIN
-	IF not EXISTS (SELECT Question.QID FROM Question WHERE QID = @Q_ID)
+	IF not EXISTS (SELECT Question.QID FROM Question WHERE QDescription = @Q_Desc)
 		INSERT INTO Question
-			VALUES (@Q_ID, @Q_Desc, @Q_Type, @Q_Model_Answer, @CR_ID)
+			VALUES (@Q_Desc, @Q_Type, @Q_Model_Answer, @CR_ID)
 	ELSE
-		SELECT CONCAT('Question # ', CAST(@Q_ID AS varchar(20)), ' Already Exists')
+		SELECT CONCAT('Question -> ', @Q_Desc, ' Already Exists')
 END
 
 GO
@@ -551,7 +565,7 @@ AS
 BEGIN
 	IF not EXISTS (SELECT Exam.EID FROM Exam WHERE EID = @E_ID)
 		INSERT INTO Exam
-			VALUES (@E_ID, @E_Duration, @E_Date)
+			VALUES (@E_Duration, @E_Date)
 	ELSE
 		SELECT CONCAT('Exam # ', CAST(@E_ID AS varchar(20)), ' Already Exists')
 END
@@ -564,8 +578,7 @@ AS
 BEGIN
 	IF EXISTS(SELECT Exam.EID FROM Exam WHERE EID = @E_ID)
 		UPDATE Exam 
-			SET EID = ISNULL(@E_ID, EID),
-				Eduration = ISNULL(@E_Duration, Eduration),
+			SET Eduration = ISNULL(@E_Duration, Eduration),
 				Exam_Date = ISNULL(@E_Date, Exam_Date)
 			WHERE EID = @E_ID
 	ELSE
@@ -846,12 +859,12 @@ END
 GO
 
 
-CREATE PROC [dbo].[Insert_Student_Exam_Question] @S_ID int, @E_ID int, @Q_ID int
+CREATE PROC [dbo].[Insert_Student_Exam_Question] @S_ID int, @E_ID int, @Q_ID int, @S_Answer char
 AS
 BEGIN
 	IF not EXISTS (SELECT * FROM Stud_Exam_Ques WHERE SID = @S_ID and EID = @E_ID and QID = @Q_ID)
 		INSERT INTO Stud_Exam_Ques
-			VALUES (@S_ID, @E_ID, @Q_ID)
+			VALUES (@S_ID, @E_ID, @Q_ID, @S_Answer)
 	ELSE
 		SELECT CONCAT(' Student # ', CAST(@S_ID AS varchar(20)), 'For Exam #', CAST(@E_ID AS varchar(20)), 'For Question #', CAST(@Q_ID AS varchar(20)),' Already Exists')
 END
@@ -884,7 +897,4 @@ END
 
 GO
 /* END EXAM-QUESTION PROCEDURES*/
-
-
-
 
