@@ -233,10 +233,10 @@ END
 
 GO
 
-CREATE PROC [dbo].[Insert_Department] @D_ID int, @Dname varchar(20),@Dmanager int = NULL
+CREATE PROC [dbo].[Insert_Department] @Dname varchar(20),@Dmanager int = NULL
 AS
 BEGIN
-	IF not EXISTS (SELECT Department.DID FROM Department WHERE DID = @D_ID)
+	IF not EXISTS (SELECT Department.DID FROM Department WHERE Dname = @Dname)
 		INSERT INTO Department values(@Dname, @Dmanager)
 	ELSE
 		SELECT CONCAT('Department -> ', @Dname, ' Already Exists')

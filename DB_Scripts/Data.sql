@@ -15,8 +15,27 @@ exec Select_User_All
 exec Select_Student_All
 exec Select_Instructor_All
 
-exec Delete_User 2
+-- exec Delete_User 2
 
+
+/* DEPARTMENT */
+
+exec Insert_Department 'SD', 5
+exec Insert_Department 'OS', 6
+exec Insert_Department 'CS', 7
+exec Insert_Department 'Ui', 8
+
+
+exec Update_Instructor 5, NULL, NULL, 100
+exec Update_Instructor 6, NULL, NULL, 101
+exec Update_Instructor 7, NULL, NULL, 102
+exec Update_Instructor 8, NULL, NULL, 103
+exec Update_Instructor 9, NULL, NULL, 100
+
+
+
+
+exec Select_Department_All
 
 /* COURSE */
 exec Insert_Course 'OOP', 30
@@ -25,6 +44,25 @@ exec Insert_Course 'Intro to Programming', 30
 
 exec Select_Course_All
 
+
+/* TOPICS */
+exec Insert_Topic 200, 'Inheritance'
+exec Insert_Topic 200, 'Polymorphism'
+exec Insert_Topic 200, 'Abstraction'
+exec Insert_Topic 200, 'Encapsulation'
+
+exec Insert_Topic 201, 'Stored Procedures'
+exec Insert_Topic 201, 'Triggers'
+exec Insert_Topic 201, 'Cursors'
+exec Insert_Topic 201, 'Joins'
+
+exec Insert_Topic 202, 'Pointers'
+exec Insert_Topic 202, 'Variables'
+exec Insert_Topic 202, 'Arrays'
+exec Insert_Topic 202, 'Functions'
+
+
+exec Select_Topic_All
 
 /* Question*/
 BEGIN
@@ -92,13 +130,53 @@ BEGIN
 	/* DB */
 	select @C_ID = CID  from Course where Course.Cname = 'DB'
 	exec  Insert_Question  'Which of the following is generally used for performing tasks like creating the structure of the relations, deleting relation ?', '1', 'D', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', 'DML(Data Manipulation Language)'
+		exec  Insert_Choices   @Q_ID, 'B', 'Query'
+		exec  Insert_Choices   @Q_ID, 'C', 'Relational Schema'
+		exec  Insert_Choices   @Q_ID, 'D', 'DDL(Data Definition Language)'
 	exec  Insert_Question  'Which of the following provides the ability to query information from the database and insert tuples into, delete tuples from, and modify tuples in the database ?', '1', 'A', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', 'DML(Data Manipulation Language)'
+		exec  Insert_Choices   @Q_ID, 'B', 'DDL(Data Definition Language)'
+		exec  Insert_Choices   @Q_ID, 'C', 'Query'
+		exec  Insert_Choices   @Q_ID, 'D', 'Relational Schema'
 	exec  Insert_Question  'Which one of the following given statements possibly contains the error ?', '1', 'D', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', 'select * from emp where empid = 10003;'
+		exec  Insert_Choices   @Q_ID, 'B', 'select empid from emp where empid = 10006;'
+		exec  Insert_Choices   @Q_ID, 'C', 'select empid from emp;'
+		exec  Insert_Choices   @Q_ID, 'D', 'select empid where empid = 1009 and Lastname = GELLER;'
 	exec  Insert_Question  'What do you mean by one to many relationships ?', '1', 'B', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', 'One class may have many teachers'
+		exec  Insert_Choices   @Q_ID, 'B', 'One teacher can have many classes'
+		exec  Insert_Choices   @Q_ID, 'C', 'Many classes may have many teachers'
+		exec  Insert_Choices   @Q_ID, 'D', 'Many teachers may have many classes'
 	exec  Insert_Question  'A Database Management System is a type of _________software.', '1', 'A', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', 'It is a type of system software'
+		exec  Insert_Choices   @Q_ID, 'B', 'It is a kind of application software'
+		exec  Insert_Choices   @Q_ID, 'C', 'It is a kind of general software'
+		exec  Insert_Choices   @Q_ID, 'D', 'Both A and C'
 	exec  Insert_Question  'The term "FAT" is stands for_____', '1', 'B', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', 'File Allocation Tree'
+		exec  Insert_Choices   @Q_ID, 'B', 'File Allocation Table'
+		exec  Insert_Choices   @Q_ID, 'C', 'File Allocation Graph'
+		exec  Insert_Choices   @Q_ID, 'D', 'All of the above'
 	exec  Insert_Question  'The term "NTFS" refers to which one of the following ?', '1', 'A', @C_ID
-	exec  Insert_Question  'The term "NTFS" refers to which one of the following ?', '1', 'A', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', 'New Technology File System'
+		exec  Insert_Choices   @Q_ID, 'B', 'New Tree File System'
+		exec  Insert_Choices   @Q_ID, 'C', 'New Table type File System'
+		exec  Insert_Choices   @Q_ID, 'D', 'Both A and C'
+	exec  Insert_Question  'Which of the following can be considered as the maximum size that is supported by FAT ?', '1', 'B', @C_ID
+		set @Q_ID = IDENT_CURRENT('dbo.Question')
+		exec  Insert_Choices   @Q_ID, 'A', '8GB'
+		exec  Insert_Choices   @Q_ID, 'B', '4GB'
+		exec  Insert_Choices   @Q_ID, 'C', '4TB'
+		exec  Insert_Choices   @Q_ID, 'D', 'None of the above'
 	exec  Insert_Question  'The relational database model was created by E.F. Codd.', '2', 'A', @C_ID
 	exec  Insert_Question  'A database is called "self-describing" because it contains a description of itself.', '2', 'A', @C_ID
 	exec  Insert_Question  'In a database, data is stored in spreadsheets which have rows and columns.', '2', 'B', @C_ID
@@ -134,6 +212,7 @@ deallocate cur
 
 
 DELETE  FROM Student
+DELETE	FROM Department
 DELETE  FROM Instructor
 DELETE  FROM _User
 DELETE	FROM Choices

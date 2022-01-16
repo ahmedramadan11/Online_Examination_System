@@ -1,4 +1,3 @@
-create database OnlineExamination;
 
 create table _User(
 
@@ -138,4 +137,11 @@ create table Stud_Exam_Ques(
 );
 
 
+create database OnlineExamination;
+
+
+
+USE MASTER
+go
 DROP DATABASE OnlineExamination;
+go
