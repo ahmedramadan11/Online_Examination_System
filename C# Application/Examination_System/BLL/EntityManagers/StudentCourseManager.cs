@@ -13,11 +13,13 @@ namespace BLL
     {
         static DBManager dBmanager = new();
 
-        public static StudentCourseList SelectAllStudentCourse()
+        public static StudentCourseList SelectAllStudentCourse(int studentID)
         {
             try
             {
-                return DataTable2StudentCourseList(dBmanager.ExecuteDataTable("Select_Student_Course_All"));
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@S_ID"] = studentID;
+                return DataTable2StudentCourseList(dBmanager.ExecuteDataTable("Select_User_Course_Exam_Join", map));
             }
             catch (Exception ex)
             {
@@ -52,16 +54,20 @@ namespace BLL
             StudentCourse SC = new();
             try
             {
+
                 if (int.TryParse(Dr["SID"]?.ToString() ?? "-1", out int TempInt))
                     SC.SID = TempInt;
 
                 if (int.TryParse(Dr["CID"]?.ToString() ?? "-1", out TempInt))
                     SC.CID = TempInt;
 
-                if (int.TryParse(Dr["Grade"]?.ToString() ?? "-1", out TempInt))
-                    SC.Grade = TempInt;
+                if (int.TryParse(Dr["EID"]?.ToString() ?? "-1", out TempInt))
+                    SC.EID = TempInt;
+
+                SC.userName = Dr["userName"]?.ToString() ?? "NA";
 
 
+                SC.Cname = Dr["Cname"]?.ToString() ?? "NA";
 
             }
             catch (Exception ex)

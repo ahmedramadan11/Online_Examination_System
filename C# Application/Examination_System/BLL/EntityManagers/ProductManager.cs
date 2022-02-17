@@ -26,20 +26,20 @@ namespace BLL
             return new();
         }
 
-        public static bool DeleteProductByID (int ProductId)
-        {
-            try
-            {
-                Dictionary<string, object> Parms = new() { ["ProductId"] = ProductId };
+        //public static bool DeleteProductByID (int ProductId)
+        //{
+        //    try
+        //    {
+        //        Dictionary<string, object> Parms = new() { ["ProductId"] = ProductId };
                 
-                return dBmanager.ExecuteNonQuery("DeleteProductByID" , Parms) > 0;
-            }
-            catch
-            {
+        //        return dBmanager.ExecuteNonQuery("DeleteProductByID" , Parms) > 0;
+        //    }
+        //    catch
+        //    {
 
-            }
-            return false;
-        }
+        //    }
+        //    return false;
+        //}
 
         #region Mapping
 

@@ -11,6 +11,8 @@ namespace BLL
 
         public int SID { get; set; }
         public int CID { get; set; }
-        public int Grade { get; set; }
+        public int EID { get; set; }
+        public string? userName { get; set; }
+        public string? Cname { get; set; }
     }
 }

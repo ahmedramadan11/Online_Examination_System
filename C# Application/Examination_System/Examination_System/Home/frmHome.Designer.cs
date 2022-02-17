@@ -35,11 +35,12 @@
             // grdStudentCourse
             // 
             this.grdStudentCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdStudentCourse.Location = new System.Drawing.Point(115, 59);
+            this.grdStudentCourse.Location = new System.Drawing.Point(155, 50);
             this.grdStudentCourse.Name = "grdStudentCourse";
             this.grdStudentCourse.RowTemplate.Height = 25;
-            this.grdStudentCourse.Size = new System.Drawing.Size(526, 323);
+            this.grdStudentCourse.Size = new System.Drawing.Size(461, 323);
             this.grdStudentCourse.TabIndex = 0;
+            this.grdStudentCourse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdStudentCourse_CellContentClick);
             // 
             // frmHome
             // 

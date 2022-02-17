@@ -1,4 +1,4 @@
-/*
+
 
 delete from Exam_Question
 delete from Exam
@@ -6,14 +6,15 @@ delete from Exam
 select * from Question
 select * from Exam_Question
 select * from Exam
-
-
-
-
+select * from Course
 select * from Choices
+select * from _User
+select * from Stud_Exam_Course
 
 
 exec generate_Exam 200,3,3
+
+exec Insert_Student_EXAM_Course 1, 1001, 200
 
 select IDENT_CURRENT('Exam')+IDENT_INCR('Exam')
 
@@ -68,7 +69,7 @@ begin
 
 end
 
-*/
+
 
 
 select * from Exam_Question
@@ -85,13 +86,14 @@ delete from Exam
 select * from Exam
 select * from Exam_Question
 Select * from Stud_Exam_Ques
+delete from Stud_Exam_Ques
 
 exec generate_Exam 200,3,7
 
-exec Exam_Answers 1032,1,'A','B','C','D','A','B','C','A','B','A'
+exec Exam_Answers 1001,1,'A','B','C','D','A',NULL, NULL, NULL, NULL, NULL
 
 
-/*alter proc Exam_Answers @eID int, @stuId int,
+alter proc Exam_Answers @eID int, @stuId int,
 					     @num1 char,@num2 char,@num3 char,@num4 char,@num5 char,
 						@num6 char,@num7 char,@num8 char,@num9 char,@num10 char
 as

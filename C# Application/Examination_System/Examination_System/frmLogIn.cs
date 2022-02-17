@@ -70,7 +70,9 @@ namespace Examination_System
             {
                 Home.frmHome frmHome = new Home.frmHome(user);
                 this.Hide();
-                frmHome.Show();
+                frmHome.ShowDialog();
+                this.Show();
+
             }
         }
     }
