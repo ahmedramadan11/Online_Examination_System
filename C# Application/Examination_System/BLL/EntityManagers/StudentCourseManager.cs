@@ -28,6 +28,32 @@ namespace BLL
             return new();
         }
 
+        public static int ExamAnswer(int _examID, int _studentID, string[] answers)
+        {
+            int counter = 1;
+            int grade = 0;
+            Dictionary<string, object> map1 = new Dictionary<string, object>();
+            Dictionary<string, object> map2 = new Dictionary<string, object>();
+
+            map1["@eID"] = _examID;
+            map1["@stuId"] = _studentID;
+            foreach (var item in answers)
+            {
+                map1[$"@num{counter++}"] = item;
+            }
+
+
+            dBmanager.ExecuteNonQuery("Exam_Answers", map1);
+
+            map2["@eID"] = _examID;
+            map2["@stuId"] = _studentID;
+
+             grade = Convert.ToInt32(dBmanager.ExecuteScaler("ExamCorrection", map2));
+            
+
+            return grade;
+        }
+
 
         #region Mapping
 

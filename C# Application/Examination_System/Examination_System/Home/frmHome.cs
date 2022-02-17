@@ -32,7 +32,6 @@ namespace Examination_System.Home
         private void frmHome_Load(object sender, EventArgs e)
         {
             studentCourseList = StudentCourseManager.SelectAllStudentCourse(CurrentUser.UID);
-            Trace.WriteLine(studentCourseList.Count());
             grdStudentCourse.DataSource = studentCourseList;
             grdStudentCourse.Columns[0].Visible = false;
             grdStudentCourse.Columns[1].Visible = false;

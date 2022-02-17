@@ -15,9 +15,10 @@ namespace Examination_System.Exam
     public partial class frmExam : Form
     {
         DataTable examDetailsTable;
-        DataTable questionChoicesTable;
+        DataTable questionChoiceTable;
+        QuestionChoiceList questionChoicesList;
         BindingSource bindingSourceExamDetails;
-        BindingSource comboDataBinding;
+        string[] examAnswers;
         
         public User CurrentUser { get; set; }
         public int ExamID { get; set; }
@@ -26,10 +27,20 @@ namespace Examination_System.Exam
         {
             InitializeComponent();
             bindingSourceExamDetails = new BindingSource();
-            comboDataBinding = new BindingSource();
+            questionChoicesList = new QuestionChoiceList();
+            examDetailsTable = new DataTable();
+            questionChoiceTable = new DataTable();
+            examAnswers = new string[10];
+
+            for (int i = 0; i < examAnswers.Length; i++)
+            {
+                examAnswers[i] = "A";
+            }
 
             CurrentUser = _currentUser;
             ExamID = _examID;
+
+            Trace.WriteLine(ExamID);
         }
 
         private void frmExam_Load(object sender, EventArgs e)
@@ -42,13 +53,21 @@ namespace Examination_System.Exam
             lblQuestion.DataBindings.Add("Text", bindingSourceExamDetails, "QDescription");
 
             DataRowView exam = (DataRowView)bindingSourceExamDetails.Current;
-            ShowAnswers(exam);
 
-            cmbAnswers.DataSource = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]); ;
+
+            questionChoicesList = QuestionChoiceManager.SelectQuestionChoice();
+
+
+            var result = questionChoicesList.Where((Q) => Q.QID == (int)exam.Row["QID"]).ToList();
+
+            cmbAnswers.DataSource = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]);
             cmbAnswers.DisplayMember = "Description";
             cmbAnswers.ValueMember = "ChoiceNum";
 
+            ShowAnswers(exam, result);
         }
+
+
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -62,9 +81,15 @@ namespace Examination_System.Exam
 
                 DataRowView exam = (DataRowView)bindingSourceExamDetails.Current;
 
-                ShowAnswers(exam);
 
-                cmbAnswers.DataSource = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]); ;
+                questionChoicesList = QuestionChoiceManager.SelectQuestionChoice();
+
+
+                var result = questionChoicesList.Where((Q) => Q.QID == (int)exam.Row["QID"]).ToList();
+                ShowAnswers(exam, result);
+
+
+                cmbAnswers.DataSource = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]);
                 cmbAnswers.DisplayMember = "Description";
                 cmbAnswers.ValueMember = "ChoiceNum";
             }
@@ -82,9 +107,18 @@ namespace Examination_System.Exam
                 lblQuestionNum.Text = (bindingSourceExamDetails.IndexOf(bindingSourceExamDetails.Current) + 1).ToString();
 
                 DataRowView exam = (DataRowView)bindingSourceExamDetails.Current;
-                ShowAnswers(exam);
+                questionChoicesList = QuestionChoiceManager.SelectQuestionChoice();
+                questionChoiceTable = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]);
 
-                cmbAnswers.DataSource = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]);
+
+                Trace.WriteLine(questionChoiceTable.Rows[0].ToString());
+
+                var result = questionChoicesList.Where((Q) => Q.QID == (int)exam.Row["QID"]).ToList();
+
+                ShowAnswers(exam, result);
+
+
+                cmbAnswers.DataSource = questionChoiceTable;
                 cmbAnswers.DisplayMember = "Description";
                 cmbAnswers.ValueMember = "ChoiceNum";
             }
@@ -93,9 +127,9 @@ namespace Examination_System.Exam
             
         }
 
-        private void ShowAnswers(DataRowView exam)
+        private void ShowAnswers(DataRowView currentExam, List<QuestionChoice> _questionChoiceList)
         {
-            if (exam.Row["QType"].Equals("2"))
+            if (currentExam.Row["QType"].Equals("2"))
             {
                 lblChoice1.Text = "True";
                 lblChoice2.Text = "False";
@@ -105,12 +139,9 @@ namespace Examination_System.Exam
 
                 lblChoice3Num.Visible = false;
                 lblChoice4Num.Visible = false;
-
-
             }
             else
             {
-                questionChoicesTable = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]);
 
                 lblChoice3.Visible = true;
                 lblChoice4.Visible = true;
@@ -118,15 +149,34 @@ namespace Examination_System.Exam
                 lblChoice3Num.Visible = true;
                 lblChoice4Num.Visible = true;
 
-                lblChoice1.Text = questionChoicesTable.Rows[0]["Description"].ToString();
-                lblChoice2.Text = questionChoicesTable.Rows[1]["Description"].ToString();
-                lblChoice3.Text = questionChoicesTable.Rows[2]["Description"].ToString();
-                lblChoice4.Text = questionChoicesTable.Rows[3]["Description"].ToString();
 
-                
+                lblChoice1.Text = _questionChoiceList[0].Description;
+                lblChoice2.Text = _questionChoiceList[1].Description;
+                lblChoice3.Text = _questionChoiceList[2].Description;
+                lblChoice4.Text = _questionChoiceList[3].Description;
 
-                questionChoicesTable.Clear();
+                _questionChoiceList.Clear();
             }
+        }
+
+        private void frmExam_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //this.Close();
+        }
+
+
+        private void cmbAnswers_DropDownClosed(object sender, EventArgs e)
+        {
+
+            int index = bindingSourceExamDetails.IndexOf(bindingSourceExamDetails.Current);
+            examAnswers[index] = (string)cmbAnswers.SelectedValue;
+        }
+
+        private void btnFinish_Click(object sender, EventArgs e)
+        {
+            int result = StudentCourseManager.ExamAnswer(ExamID, CurrentUser.UID, examAnswers);
+
+            Trace.WriteLine(result);
         }
     }
 }

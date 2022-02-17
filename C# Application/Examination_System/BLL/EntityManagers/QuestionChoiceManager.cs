@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace BLL
 {
@@ -13,13 +14,46 @@ namespace BLL
 
         static DBManager dBmanager = new();
 
+        public static QuestionChoiceList SelectQuestionChoice()
+        {
+            try
+            {
+                //Dictionary<string, object> map = new Dictionary<string, object>();
+                //map["@Q_ID"] = _questionID;
+                return DataTable2QuestionChoiceList(dBmanager.ExecuteDataTable("Select_Choices_All"));
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new();
+        }
+
         public static DataTable SelectQuestionChoice(int _questionID)
         {
             try
             {
+                DataTable newResult = new DataTable();
                 Dictionary<string, object> map = new Dictionary<string, object>();
                 map["@Q_ID"] = _questionID;
-                return dBmanager.ExecuteDataTable("Select_Choices", map);
+                
+
+                DataTable result = dBmanager.ExecuteDataTable("Select_Choices", map);
+
+                if (result.Rows.Count == 0)
+                {
+
+                    newResult.Columns.Add("QID");
+                    newResult.Columns.Add("ChoiceNum");
+                    newResult.Columns.Add("Description");
+
+                    newResult.Rows.Add(new object[] { _questionID, "A", "True" });
+                    newResult.Rows.Add(new object[] { _questionID, "B", "False" });
+
+                    return newResult;
+                }
+
+                return result;
             }
             catch (Exception ex)
             {
@@ -31,51 +65,43 @@ namespace BLL
 
         #region Mapping
 
-        //internal static ExamDetailsList DataTable2ExamDetails(DataTable Dt)
-        //{
-        //    ExamDetailsList examDetails = new();
-        //    try
-        //    {
-        //        for (int i = 0; i < Dt?.Rows.Count; i++)
-        //        {
-        //            examDetails.Add(DataRow2ExamDetails(Dt.Rows[i]));
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
+        internal static QuestionChoiceList DataTable2QuestionChoiceList(DataTable Dt)
+        {
+            QuestionChoiceList examDetails = new();
+            try
+            {
+                for (int i = 0; i < Dt?.Rows.Count; i++)
+                {
+                    examDetails.Add(DataRow2QuestionChoice(Dt.Rows[i]));
+                }
+            }
+            catch (Exception ex)
+            {
 
-        //    }
-        //    return examDetails;
-        //}
+            }
+            return examDetails;
+        }
 
 
-        //internal static ExamDetails DataRow2ExamDetails(DataRow Dr)
-        //{
-        //    ExamDetails U = new();
-        //    try
-        //    {
-        //        if (int.TryParse(Dr["EID"]?.ToString() ?? "-1", out int TempInt))
-        //            U.EID = TempInt;
+        internal static QuestionChoice DataRow2QuestionChoice(DataRow Dr)
+        {
+            QuestionChoice U = new();
+            try
+            {
+                if (int.TryParse(Dr["QID"]?.ToString() ?? "-1", out int TempInt))
+                    U.QID = TempInt;
 
-        //        if (int.TryParse(Dr["QID"]?.ToString() ?? "-1", out TempInt))
-        //            U.QID = TempInt;
+                U.ChoiceNum = Dr["ChoiceNum"]?.ToString() ?? "NA";
 
-        //        if (int.TryParse(Dr["CID"]?.ToString() ?? "-1", out TempInt))
-        //            U.CID = TempInt;
+                U.Description = Dr["Description"]?.ToString() ?? "NA";
 
-        //        U.QDescription = Dr["QDescription"]?.ToString() ?? "NA";
+            }
+            catch (Exception ex)
+            {
 
-        //        if (int.TryParse(Dr["QType"]?.ToString() ?? " - 1", out TempInt))
-        //            U.QType = TempInt;
-
-        //        U.Model_Answer = Dr["Model_Answer"]?.ToString() ?? "NA";
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //    }
-        //    return U;
-        //}
+            }
+            return U;
+        }
 
 
         #endregion

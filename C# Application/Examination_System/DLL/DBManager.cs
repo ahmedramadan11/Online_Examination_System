@@ -52,6 +52,33 @@ namespace DAL
             }
             return R;
         }
+
+        public int ExecuteNonQuery(string SPName, Dictionary<string, object> Parms)
+        {
+            int R = -1;
+            try
+            {
+                sqlCmd.Parameters.Clear();
+
+                foreach (var item in Parms)
+                    sqlCmd.Parameters.Add(new SqlParameter(item.Key, item.Value));
+
+                sqlCmd.CommandText = SPName;
+
+                if (sqlCn.State == ConnectionState.Closed)
+                    sqlCn.Open();
+
+                R = sqlCmd.ExecuteNonQuery();
+
+                sqlCn.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return R;
+        }
+
         public object ExecuteScaler (string SPName)
         {
             object R = new();
@@ -74,6 +101,33 @@ namespace DAL
             }
             return R;
         }
+
+        public object ExecuteScaler(string SPName, Dictionary<string, object> Parms)
+        {
+            object R = new();
+            try
+            {
+                sqlCmd.Parameters.Clear();
+
+                foreach (var item in Parms)
+                    sqlCmd.Parameters.Add(new SqlParameter(item.Key, item.Value));
+
+                sqlCmd.CommandText = SPName;
+
+                if (sqlCn.State == ConnectionState.Closed)
+                    sqlCn.Open();
+
+                R = sqlCmd.ExecuteScalar();
+
+                sqlCn.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return R;
+        }
+
         public DataTable ExecuteDataTable ( string SPName)
         {
             try
@@ -97,6 +151,7 @@ namespace DAL
         {
             try
             {
+                DT.Clear();
                 sqlCmd.Parameters.Clear();
 
                 foreach (var item in Parms)
@@ -116,11 +171,6 @@ namespace DAL
         }
 
 
-
-        public object ExecuteScaler(string SPName , Dictionary<string, object> Parms)
-        {
-            throw new NotImplementedException();
-        }
 
 
         public void Dispose()

@@ -90,6 +90,7 @@
             this.cmbAnswers.Name = "cmbAnswers";
             this.cmbAnswers.Size = new System.Drawing.Size(268, 23);
             this.cmbAnswers.TabIndex = 4;
+            this.cmbAnswers.DropDownClosed += new System.EventHandler(this.cmbAnswers_DropDownClosed);
             // 
             // btnFinish
             // 
@@ -99,6 +100,7 @@
             this.btnFinish.TabIndex = 5;
             this.btnFinish.Text = "End Exam";
             this.btnFinish.UseVisualStyleBackColor = true;
+            this.btnFinish.Click += new System.EventHandler(this.btnFinish_Click);
             // 
             // lblQuestionNum
             // 
@@ -203,6 +205,7 @@
             this.Controls.Add(this.lblQuestion);
             this.Name = "frmExam";
             this.Text = "frmExam";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmExam_FormClosed);
             this.Load += new System.EventHandler(this.frmExam_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
