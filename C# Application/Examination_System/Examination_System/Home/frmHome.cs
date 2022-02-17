@@ -50,8 +50,12 @@ namespace Examination_System.Home
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                Trace.WriteLine($"{e.RowIndex} ------ {senderGrid.Rows[e.RowIndex].Cells[1].Value}");
-                //TODO - Button Clicked - Execute Code Here
+
+                int examID = (int)senderGrid.Rows[e.RowIndex].Cells[2].Value;
+                Exam.frmExam frmExam = new Exam.frmExam(CurrentUser, examID);
+                this.Hide();
+                frmExam.ShowDialog();
+                this.Show();
             }
         }
     }

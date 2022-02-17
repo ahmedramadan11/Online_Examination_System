@@ -36,10 +36,31 @@ BEGIN
 
 END
 
+
+alter Procedure Exam_Details @E_ID int
+AS
+BEGIN
+
+	select Exam.EID, Question.QID, CID, QDescription, QType, Model_Answer from 
+		Exam inner join Exam_Question
+		on Exam.EID = Exam_Question.EID
+		inner join Question
+		on Question.QID = Exam_Question.QID
+		where Exam.EID = @E_ID
+END
+
+
+
+execute Exam_Details 1001
 execute Select_User_Course_Exam_Join 1
 execute Select_Student_Course_All
 execute Select_User_Course_Join
 execute Select_Student_EXAM_Course_All
 execute Select_Student_Exam_Question_All
+execute Select_Choices 306
+
 select * from _User
 execute Select_Exam_Question_All
+select * from Exam_Question
+select * from Question
+select * from Choices

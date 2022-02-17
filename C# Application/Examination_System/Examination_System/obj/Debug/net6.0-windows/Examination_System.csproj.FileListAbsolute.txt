@@ -30,3 +30,4 @@ D:\ITI\Advanced SQL Server\DB Project\C# Application\Examination_System\Examinat
 D:\ITI\Advanced SQL Server\DB Project\C# Application\Examination_System\Examination_System\obj\Debug\net6.0-windows\Examination_System.genruntimeconfig.cache
 D:\ITI\Advanced SQL Server\DB Project\C# Application\Examination_System\Examination_System\obj\Debug\net6.0-windows\Examination_System.Properties.Resources.resources
 D:\ITI\Advanced SQL Server\DB Project\C# Application\Examination_System\Examination_System\obj\Debug\net6.0-windows\Examination_System.Home.frmHome.resources
+D:\ITI\Advanced SQL Server\DB Project\C# Application\Examination_System\Examination_System\obj\Debug\net6.0-windows\Examination_System.Exam.frmExam.resources

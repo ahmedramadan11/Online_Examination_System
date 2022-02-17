@@ -13,8 +13,10 @@ select * from Stud_Exam_Course
 
 
 exec generate_Exam 200,3,3
+exec generate_Exam 201,3,3
 
 exec Insert_Student_EXAM_Course 1, 1001, 200
+exec Insert_Student_EXAM_Course 1, 1002, 201
 
 select IDENT_CURRENT('Exam')+IDENT_INCR('Exam')
 
