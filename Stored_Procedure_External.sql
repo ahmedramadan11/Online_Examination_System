@@ -59,6 +59,8 @@ execute Select_Student_EXAM_Course_All
 execute Select_Student_Exam_Question_All
 execute Select_Choices 306
 
+
+select * from Stud_Course
 select * from _User
 execute Select_Exam_Question_All
 select * from Exam_Question

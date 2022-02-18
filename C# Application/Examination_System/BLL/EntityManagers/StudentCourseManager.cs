@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using System.Data;
+using System.Diagnostics;
 
 
 namespace BLL
@@ -28,7 +29,7 @@ namespace BLL
             return new();
         }
 
-        public static int ExamAnswer(int _examID, int _studentID, string[] answers)
+        public static int ExamAnswer(int _examID, int _studentID, int _courseID, string[] answers)
         {
             int counter = 1;
             int grade = 0;
@@ -39,16 +40,17 @@ namespace BLL
             map1["@stuId"] = _studentID;
             foreach (var item in answers)
             {
+
                 map1[$"@num{counter++}"] = item;
             }
-
 
             dBmanager.ExecuteNonQuery("Exam_Answers", map1);
 
             map2["@eID"] = _examID;
-            map2["@stuId"] = _studentID;
+            map2["@studID"] = _studentID;
+            map2["@CID"] = _courseID;
 
-             grade = Convert.ToInt32(dBmanager.ExecuteScaler("ExamCorrection", map2));
+            object res = dBmanager.ExecuteScaler("ExamCorrection", map2);
             
 
             return grade;

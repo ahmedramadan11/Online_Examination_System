@@ -22,8 +22,9 @@ namespace Examination_System.Exam
         
         public User CurrentUser { get; set; }
         public int ExamID { get; set; }
+        public int CourseID { get; set; }
 
-        public frmExam(User _currentUser, int _examID)
+        public frmExam(User _currentUser, int _examID, int _courseID)
         {
             InitializeComponent();
             bindingSourceExamDetails = new BindingSource();
@@ -39,6 +40,7 @@ namespace Examination_System.Exam
 
             CurrentUser = _currentUser;
             ExamID = _examID;
+            CourseID = _courseID;
 
             Trace.WriteLine(ExamID);
         }
@@ -174,7 +176,7 @@ namespace Examination_System.Exam
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
-            int result = StudentCourseManager.ExamAnswer(ExamID, CurrentUser.UID, examAnswers);
+            int result = StudentCourseManager.ExamAnswer(ExamID, CurrentUser.UID, CourseID, examAnswers);
 
             Trace.WriteLine(result);
         }

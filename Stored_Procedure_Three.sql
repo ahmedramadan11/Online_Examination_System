@@ -145,7 +145,7 @@ end
 
 select * from _User
 select * from Student
-select * from Instructor*/
+select * from Instructor
 
 select * from Exam
 select * from Exam_Question
@@ -155,22 +155,31 @@ select * from Question
 
 
 declare @score int
+exec ExamCorrection 1001,1
 exec ExamCorrection 1032,1,@score output
 
 select @score
 
-create proc ExamCorrection @eID int , @studID int , @score int out
+alter proc ExamCorrection @eID int , @studID int, @CID int
 as
 begin
-
-	select @score=COUNT(*)
+	declare @grade int
+	set @grade = 0
+	select @grade = COUNT(*)
 	from Stud_Exam_Ques,Question
 	where Stud_Exam_Ques.QID=Question.QID
 		 and Stud_Exam_Ques.SID=@studID and
 		 Stud_Exam_Ques.EID=@eID and
 		 Stud_Exam_Ques.St_Answer=Question.Model_Answer
 
+
+	update Stud_Course set Grade = @grade where Stud_Course.CID = @CID and Stud_Course.SID = @studID
+
+	select @grade
 end
+
+
+
 
 
 

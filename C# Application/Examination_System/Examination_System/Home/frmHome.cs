@@ -16,6 +16,7 @@ namespace Examination_System.Home
     {
         public User CurrentUser { get; set; }
         StudentCourseList studentCourseList;
+        StudentGradeList studentGradesList;
         DataGridViewButtonColumn btnStartExam;
 
         public frmHome(User _cUser)
@@ -23,6 +24,8 @@ namespace Examination_System.Home
             InitializeComponent();
             CurrentUser = _cUser;
             studentCourseList = new StudentCourseList();
+            studentGradesList = new StudentGradeList();
+
             btnStartExam = new DataGridViewButtonColumn();
             btnStartExam.HeaderText = "Start Exam";
             btnStartExam.Text = "Start Now";
@@ -32,15 +35,25 @@ namespace Examination_System.Home
         private void frmHome_Load(object sender, EventArgs e)
         {
             studentCourseList = StudentCourseManager.SelectAllStudentCourse(CurrentUser.UID);
+            studentGradesList = StudentGradeManager.SelectStudentGrades();
+
+
             grdStudentCourse.DataSource = studentCourseList;
             grdStudentCourse.Columns[0].Visible = false;
             grdStudentCourse.Columns[1].Visible = false;
             grdStudentCourse.Columns[2].Visible = false;
 
+
+            grdViewGrades.DataSource = studentGradesList;
+            grdViewGrades.Columns[0].Visible = false;
+            grdViewGrades.Columns[1].Visible = false;
+            grdViewGrades.Columns[2].Visible = false;
+
+
             // Add new Column
             grdStudentCourse.Columns.Add(btnStartExam);
-
         }
+
 
         private void grdStudentCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -50,12 +63,16 @@ namespace Examination_System.Home
                 e.RowIndex >= 0)
             {
 
+                int courseID = (int)senderGrid.Rows[e.RowIndex].Cells[1].Value;
                 int examID = (int)senderGrid.Rows[e.RowIndex].Cells[2].Value;
-                Exam.frmExam frmExam = new Exam.frmExam(CurrentUser, examID);
+                Exam.frmExam frmExam = new Exam.frmExam(CurrentUser, examID, courseID);
                 this.Hide();
                 frmExam.ShowDialog();
                 this.Show();
             }
         }
+
+
+
     }
 }
