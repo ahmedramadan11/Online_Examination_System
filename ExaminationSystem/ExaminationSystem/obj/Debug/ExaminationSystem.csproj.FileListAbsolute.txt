@@ -1,0 +1,15 @@
+D:\New folder\ExaminationSystem\ExaminationSystem\bin\Debug\ExaminationSystem.exe.config
+D:\New folder\ExaminationSystem\ExaminationSystem\bin\Debug\ExaminationSystem.exe
+D:\New folder\ExaminationSystem\ExaminationSystem\bin\Debug\ExaminationSystem.pdb
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.Properties.Resources.resources
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.csproj.GenerateResource.cache
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.csproj.CoreCompileInputs.cache
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.exe
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.pdb
+D:\New folder\ExaminationSystem\ExaminationSystem\bin\Debug\BLL.dll
+D:\New folder\ExaminationSystem\ExaminationSystem\bin\Debug\DAL.dll
+D:\New folder\ExaminationSystem\ExaminationSystem\bin\Debug\BLL.pdb
+D:\New folder\ExaminationSystem\ExaminationSystem\bin\Debug\DAL.pdb
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.csproj.AssemblyReference.cache
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.csproj.CopyComplete
+D:\New folder\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.frmLogIn.resources

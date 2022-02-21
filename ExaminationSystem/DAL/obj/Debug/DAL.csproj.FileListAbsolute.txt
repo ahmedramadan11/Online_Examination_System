@@ -1,0 +1,17 @@
+D:\New folder\ExaminationSystem\DAL\bin\Debug\DAL.dll
+D:\New folder\ExaminationSystem\DAL\bin\Debug\DAL.pdb
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Data.SqlClient.dll
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Security.AccessControl.dll
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Security.Permissions.dll
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Security.Principal.Windows.dll
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Data.SqlClient.xml
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Security.AccessControl.xml
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Security.Permissions.xml
+D:\New folder\ExaminationSystem\DAL\bin\Debug\System.Security.Principal.Windows.xml
+D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.dll
+D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.pdb
