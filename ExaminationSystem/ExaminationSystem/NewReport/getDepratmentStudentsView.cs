@@ -37,5 +37,10 @@ namespace ExaminationSystem.NewReport
 
 
         }
+
+        private void getDepartMentStudreportViewer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

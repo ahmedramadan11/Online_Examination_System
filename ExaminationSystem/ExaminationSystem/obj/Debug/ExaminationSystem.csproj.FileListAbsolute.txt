@@ -28,7 +28,6 @@ C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSyste
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.csproj.CopyComplete
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.exe
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.pdb
-C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.test.resources
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\bin\Debug\AxShockwaveFlashObjects.dll
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\bin\Debug\CrystalDecisions.ReportSource.dll
@@ -48,7 +47,14 @@ C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSyste
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\bin\Debug\stdole.dll
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
-C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.Report.test1Viewer.resources
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.frmInstr.resources
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getDepratmentStudentsInput.resources
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getDepratmentStudentsView.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport._2.getSutdentgradesFormView.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport._2.getSutdentgradesInput.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getCourseTopicsInput.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getCourseTopicsView.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getStudentAnswersInput.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getStudentAnswersView.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.NCourse_NumStudInput.resources
+C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.NCourse_NumStudView.resources

@@ -76,7 +76,54 @@ namespace BLL
             return new DataTable();
         }
 
+        public static DataTable CourseTopics(int id)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@cid"] = id;
+                return dBmanager.ExecuteDataTable("CourseTopics", map);
 
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+        public static DataTable studentAnswers(int eid,int sid)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@examID"] = eid;
+                map["@studentID"] = sid;
+                return dBmanager.ExecuteDataTable("studentAnswers", map);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+        public static DataTable NCourse_NumStud(int id)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@InstID"] = id;
+                return dBmanager.ExecuteDataTable("NCourse_NumStud", map);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
 
 
 

@@ -35,5 +35,36 @@ namespace ExaminationSystem
 
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            NewReport.getCourseTopicsInput frmReport = new NewReport.getCourseTopicsInput();
+            this.Hide();
+            frmReport.ShowDialog();
+            this.Show();
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            NewReport.getStudentAnswersInput frmReport = new NewReport.getStudentAnswersInput();
+            this.Hide();
+            frmReport.ShowDialog();
+            this.Show();
+
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            NewReport.NCourse_NumStudInput frmReport = new NewReport.NCourse_NumStudInput();
+            this.Hide();
+            frmReport.ShowDialog();
+            this.Show();
+
+        }
     }
 }

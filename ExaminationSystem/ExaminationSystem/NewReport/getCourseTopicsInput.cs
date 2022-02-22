@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ExaminationSystem.NewReport._2
+namespace ExaminationSystem.NewReport
 {
-    public partial class getSutdentgradesInput : Form
+    public partial class getCourseTopicsInput : Form
     {
-        public getSutdentgradesInput()
+        public getCourseTopicsInput()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string studId = txtInput.Text;
-            NewReport._2.getSutdentgradesFormView formReport = new NewReport._2.getSutdentgradesFormView(studId);
-
-
-
+            string input = txtinput.Text;
+            NewReport.getCourseTopicsView formReport = new NewReport.getCourseTopicsView(input);
+            this.Hide();
+            formReport.ShowDialog();
+            this.Show();
         }
     }
 }

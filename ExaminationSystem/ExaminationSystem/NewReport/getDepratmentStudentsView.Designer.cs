@@ -44,6 +44,7 @@ namespace ExaminationSystem.NewReport
             this.getDepartMentStudreportViewer.ReportSource = this.getDepratmentStudentsReport1;
             this.getDepartMentStudreportViewer.Size = new System.Drawing.Size(800, 450);
             this.getDepartMentStudreportViewer.TabIndex = 0;
+            this.getDepartMentStudreportViewer.Load += new System.EventHandler(this.getDepartMentStudreportViewer_Load);
             // 
             // getDepratmentStudentsView
             // 
