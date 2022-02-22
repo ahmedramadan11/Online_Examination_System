@@ -27,6 +27,58 @@ namespace BLL
             return new UserList();
         }
 
+        public static DataTable SelectAllUsers2()
+        {
+            try
+            {
+                return dBmanager.ExecuteDataTable("Select_User_All");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+
+
+
+        public static DataTable getDepratmentStudents(int id)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@id"] = id;
+                return dBmanager.ExecuteDataTable("getDepratmentStudents", map);
+               
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+
+        public static DataTable getSutdentgrades(int id)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@stuId"] = id;
+                return dBmanager.ExecuteDataTable("getSutdentgrades", map);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+
+
+
 
         #region Mapping
 

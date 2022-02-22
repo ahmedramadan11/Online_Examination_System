@@ -63,12 +63,23 @@ namespace ExaminationSystem
                 }
 
             }
-            else
+            else if(user.User_Type.Equals("s"))
             {
                 Home.frmHome frmHome = new Home.frmHome(user);
                 this.Hide();
                 frmHome.ShowDialog();
                 this.Show();
+          
+
+            }
+            else
+            {
+                frmInstr frmInstHome = new frmInstr();
+                this.Hide();
+                frmInstHome.ShowDialog();
+                this.Show();
+
+
 
             }
         }
