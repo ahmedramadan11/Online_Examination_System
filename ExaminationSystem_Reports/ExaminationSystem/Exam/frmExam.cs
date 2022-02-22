@@ -177,6 +177,7 @@ namespace ExaminationSystem.Exam
         private void btnFinish_Click(object sender, EventArgs e)
         {
             int result = StudentCourseManager.ExamAnswer(ExamID, CurrentUser.UID, CourseID, examAnswers);
+            this.Close();
 
             Trace.WriteLine(result);
         }

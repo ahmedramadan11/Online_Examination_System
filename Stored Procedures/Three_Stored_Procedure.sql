@@ -15,8 +15,8 @@ select * from Stud_Exam_Course
 exec generate_Exam 200,3,3
 exec generate_Exam 201,3,3
 
-exec Insert_Student_EXAM_Course 1, 1003, 200
-exec Insert_Student_EXAM_Course 1, 1004, 201
+exec Insert_Student_EXAM_Course 1, 1009, 200
+exec Insert_Student_EXAM_Course 1, 1010, 201
 
 select IDENT_CURRENT('Exam')+IDENT_INCR('Exam')
 
@@ -89,6 +89,7 @@ select * from Exam
 select * from Exam_Question
 select * from Stud_Exam_Course
 Select * from Stud_Exam_Ques
+SELECT * FROM Stud_Course
 delete from Stud_Exam_Ques
 delete from Stud_Exam_Course
 

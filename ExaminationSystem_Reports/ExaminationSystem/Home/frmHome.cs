@@ -17,6 +17,7 @@ namespace ExaminationSystem.Home
         StudentCourseList studentCourseList;
         StudentGradeList studentGradesList;
         DataGridViewButtonColumn btnStartExam;
+        bool flag = false;
 
         public frmHome(User _cUser)
         {
@@ -49,8 +50,12 @@ namespace ExaminationSystem.Home
             grdViewGrades.Columns[2].Visible = false;
 
 
+     
+
             // Add new Column
             grdStudentCourse.Columns.Add(btnStartExam);
+
+            
         }
 
 
@@ -67,6 +72,8 @@ namespace ExaminationSystem.Home
                 Exam.frmExam frmExam = new Exam.frmExam(CurrentUser, examID, courseID);
                 this.Hide();
                 frmExam.ShowDialog();
+                grdStudentCourse.Columns.Clear();
+                frmHome_Load(this, new EventArgs());
                 this.Show();
             }
         }
