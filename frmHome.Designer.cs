@@ -1,7 +1,4 @@
-﻿
-using System.Windows.Forms;
-
-namespace ExaminationSystem.Home
+﻿namespace Examination_System.Home
 {
     partial class frmHome
     {

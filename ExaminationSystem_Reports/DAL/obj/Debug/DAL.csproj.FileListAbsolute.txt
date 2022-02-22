@@ -15,3 +15,20 @@ D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.dll
 D:\New folder\ExaminationSystem\DAL\obj\Debug\DAL.pdb
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\DAL.dll
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\DAL.pdb
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Configuration.ConfigurationManager.dll
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Data.SqlClient.dll
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Security.AccessControl.dll
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Security.Permissions.dll
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Security.Principal.Windows.dll
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Configuration.ConfigurationManager.xml
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Data.SqlClient.xml
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Security.AccessControl.xml
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Security.Permissions.xml
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\bin\Debug\System.Security.Principal.Windows.xml
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\obj\Debug\DAL.csproj.CopyComplete
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\obj\Debug\DAL.dll
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\DAL\obj\Debug\DAL.pdb
