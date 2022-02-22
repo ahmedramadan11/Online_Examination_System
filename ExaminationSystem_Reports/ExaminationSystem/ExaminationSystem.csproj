@@ -169,6 +169,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Exam\frmExam.resx">
+      <DependentUpon>frmExam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInstr.resx">
       <DependentUpon>frmInstr.cs</DependentUpon>
     </EmbeddedResource>

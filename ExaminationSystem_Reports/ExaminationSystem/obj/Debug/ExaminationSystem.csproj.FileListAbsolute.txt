@@ -103,3 +103,4 @@ G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug
 G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.csproj.CopyComplete
 G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.exe
 G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.pdb
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.Exam.frmExam.resources

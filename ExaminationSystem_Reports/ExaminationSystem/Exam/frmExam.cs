@@ -14,10 +14,12 @@ namespace ExaminationSystem.Exam
 {
     public partial class frmExam : Form
     {
+        int currentQuestion = 0;
         DataTable examDetailsTable;
         DataTable questionChoiceTable;
         QuestionChoiceList questionChoicesList;
         BindingSource bindingSourceExamDetails;
+        List<RadioButton> radioButtonsList = new List<RadioButton>() { };
         string[] examAnswers;
 
         public User CurrentUser { get; set; }
@@ -38,6 +40,7 @@ namespace ExaminationSystem.Exam
                 examAnswers[i] = "A";
             }
 
+            radioButtonsList = new List<RadioButton>() { radioButton1, radioButton2, radioButton3, radioButton4};
             CurrentUser = _currentUser;
             ExamID = _examID;
             CourseID = _courseID;
@@ -94,9 +97,21 @@ namespace ExaminationSystem.Exam
                 cmbAnswers.DataSource = QuestionChoiceManager.SelectQuestionChoice((int)exam.Row["QID"]);
                 cmbAnswers.DisplayMember = "Description";
                 cmbAnswers.ValueMember = "ChoiceNum";
+
+
             }
+            DataRowView ex= (DataRowView)bindingSourceExamDetails.Current;
+            if (ex.Row["QType"].Equals(2))
+            {
 
+                Getcurrentselection(2);
+            }
+            else
+            {
+                Getcurrentselection(4);
 
+            }
+            if (index < bindingSourceExamDetails.Count - 1) currentQuestion++;
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
@@ -125,19 +140,76 @@ namespace ExaminationSystem.Exam
                 cmbAnswers.ValueMember = "ChoiceNum";
             }
 
+            DataRowView ex = (DataRowView)bindingSourceExamDetails.Current;
+            if (ex.Row["QType"].Equals(2))
+            {
+
+                Getcurrentselection(2);
+            }
+            else
+            {
+                Getcurrentselection(4);
+
+            }
+            if (index != 0) currentQuestion--;
+
+        }
 
 
+
+        private void Getcurrentselection(int numberOfQuestion)
+        {
+
+            for (int i = 0; i < numberOfQuestion; i++)
+            {
+                bool flag = radioButtonsList[i].Checked;
+                Trace.WriteLine(flag);
+
+                if (flag)
+                {
+                    string symbol = GetAnswerSymbol(i);
+                    examAnswers[currentQuestion] = symbol;
+                    Trace.WriteLine(symbol);
+                }
+
+
+            }
+        }
+
+        private string GetAnswerSymbol(int index)
+        {
+            string result;
+            switch(index)
+            {
+                case 0:
+                    result = "A";
+                    break;
+                case 1:
+                    result = "B";
+                    break;
+                case 2:
+                    result = "C";
+                    break;
+                case 3:
+                    result = "D";
+                    break;
+                default:
+                    result = "A";
+                    break;
+            }
+
+            return result;
         }
 
         private void ShowAnswers(DataRowView currentExam, List<QuestionChoice> _questionChoiceList)
         {
             if (currentExam.Row["QType"].Equals("2"))
             {
-                lblChoice1.Text = "True";
-                lblChoice2.Text = "False";
+                radioButton1.Text = "True";
+                radioButton2.Text = "False";
 
-                lblChoice3.Visible = false;
-                lblChoice4.Visible = false;
+                radioButton3.Visible = false;
+                radioButton4.Visible = false;
 
                 lblChoice3Num.Visible = false;
                 lblChoice4Num.Visible = false;
@@ -145,17 +217,17 @@ namespace ExaminationSystem.Exam
             else
             {
 
-                lblChoice3.Visible = true;
-                lblChoice4.Visible = true;
+                radioButton3.Visible = true;
+                radioButton4.Visible = true;
 
                 lblChoice3Num.Visible = true;
                 lblChoice4Num.Visible = true;
 
 
-                lblChoice1.Text = _questionChoiceList[0].Description;
-                lblChoice2.Text = _questionChoiceList[1].Description;
-                lblChoice3.Text = _questionChoiceList[2].Description;
-                lblChoice4.Text = _questionChoiceList[3].Description;
+                radioButton1.Text = _questionChoiceList[0].Description;
+                radioButton2.Text = _questionChoiceList[1].Description;
+                radioButton3.Text = _questionChoiceList[2].Description;
+                radioButton4.Text = _questionChoiceList[3].Description;
 
                 _questionChoiceList.Clear();
             }
@@ -176,6 +248,10 @@ namespace ExaminationSystem.Exam
 
         private void btnFinish_Click(object sender, EventArgs e)
         {
+            foreach(var item in examAnswers)
+            {
+                Trace.WriteLine($"Answer ->{item}");
+            }
             int result = StudentCourseManager.ExamAnswer(ExamID, CurrentUser.UID, CourseID, examAnswers);
             this.Close();
 
