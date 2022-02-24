@@ -95,7 +95,7 @@ namespace DAL
                 foreach (var item in Parms)
                     sqlCmd.Parameters.Add(new SqlParameter(item.Key, item.Value));
 
-                var returnParameter = sqlCmd.Parameters.Add("@eId", SqlDbType.Int);
+                var returnParameter = sqlCmd.Parameters.Add("@outParam", SqlDbType.Int);
                 returnParameter.Direction = ParameterDirection.Output;
 
                 sqlCmd.CommandText = SPName;

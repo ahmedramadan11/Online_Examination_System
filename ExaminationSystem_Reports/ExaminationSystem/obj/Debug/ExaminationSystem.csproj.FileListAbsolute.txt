@@ -152,3 +152,5 @@ C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem_Reports\Examinat
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.pdb
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getExamQuestionsInput.resources
 C:\Users\Lenovo\Desktop\New folder\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getExamQuestionsView.resources
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getExamQuestionsInput.resources
+G:\FCI-CU\Repos\DB-Project\ExaminationSystem_Reports\ExaminationSystem\obj\Debug\ExaminationSystem.NewReport.getExamQuestionsView.resources

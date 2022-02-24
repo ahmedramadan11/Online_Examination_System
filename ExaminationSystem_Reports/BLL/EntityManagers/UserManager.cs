@@ -35,6 +35,29 @@ namespace BLL
             return r;
         }
 
+        public static int Insert_Question(string _qDesc, string _qType, string _modelAnswer, int cId)
+        {
+            int r = 0;
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            map["@Q_Desc"] = _qDesc;
+            map["@Q_Type"] = _qType;
+            map["@Q_Model_Answer"] = _modelAnswer;
+            map["@CR_ID"] = cId;
+            r = dBmanager.ExecuteNonQueryWithOutParm("Insert_Question", map);
+            return r;
+        }
+
+        public static int Insert_Question_Choices(int _qID, string _choiceNum, string _choiceDesc)
+        {
+            int r = 0;
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            map["@Q_ID"] = _qID;
+            map["@Choice_Num"] = _choiceNum;
+            map["@Desc"] = _choiceDesc;
+            r = dBmanager.ExecuteNonQuery("Insert_Choices", map);
+            return r;
+        }
+
         public static UserList SelectAllUsers()
         {
             try
