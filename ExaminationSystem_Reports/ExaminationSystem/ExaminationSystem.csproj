@@ -95,6 +95,24 @@
     <Compile Include="NewReport\getCourseTopicsView.Designer.cs">
       <DependentUpon>getCourseTopicsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewReport\getExamQuestionsInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewReport\getExamQuestionsInput.Designer.cs">
+      <DependentUpon>getExamQuestionsInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewReport\getExamQuestionsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>getExamQuestionsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NewReport\getExamQuestionsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewReport\getExamQuestionsView.Designer.cs">
+      <DependentUpon>getExamQuestionsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewReport\getStudentAnswersInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +205,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewReport\getCourseTopicsView.resx">
       <DependentUpon>getCourseTopicsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewReport\getExamQuestionsInput.resx">
+      <DependentUpon>getExamQuestionsInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewReport\getExamQuestionsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>getExamQuestionsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewReport\getExamQuestionsView.resx">
+      <DependentUpon>getExamQuestionsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewReport\getStudentAnswersInput.resx">
       <DependentUpon>getStudentAnswersInput.cs</DependentUpon>

@@ -74,7 +74,7 @@ namespace ExaminationSystem
             }
             else
             {
-                frmInstr frmInstHome = new frmInstr();
+                frmInstr frmInstHome = new frmInstr(user);
                 this.Hide();
                 frmInstHome.ShowDialog();
                 this.Show();

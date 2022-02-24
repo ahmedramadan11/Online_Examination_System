@@ -13,6 +13,28 @@ namespace BLL
 
         static DBManager dBmanager = new DBManager();
 
+        public static int addNewTopic( int cId,string topic)
+        {
+            int r = 0;
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            map["@Cid"] = cId;
+            map["@tName"] = topic;
+            r = dBmanager.ExecuteNonQuery("addNewTopic", map);
+            return r;
+        }
+
+
+        public static int Insert_Student_EXAM_Course(int sId,int eId,int cId)
+        {
+            int r = 0;
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            map["@S_ID"] = sId;
+            map["@E_ID"] = eId;
+            map["@C_ID"] = cId;
+            r = dBmanager.ExecuteNonQuery("Insert_Student_EXAM_Course", map);
+            return r;
+        }
+
         public static UserList SelectAllUsers()
         {
             try
@@ -41,6 +63,72 @@ namespace BLL
         }
 
 
+
+
+
+
+        public static DataTable getExamQuestions(int eId)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@Eid"] = eId;
+                return dBmanager.ExecuteDataTable("getExamQuestions", map);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+
+        public static DataTable selectCourseStudents(int cId)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@cid"] = cId;
+                return dBmanager.ExecuteDataTable("selectCourseStudents", map);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+
+        public static DataTable selectInsCourse(int insId)
+        {
+            try
+            {
+                Dictionary<string, object> map = new Dictionary<string, object>();
+                map["@insId"] = insId;
+                return dBmanager.ExecuteDataTable("selectInsCourse", map);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return new DataTable();
+        }
+
+     
+
+        public static int generate_Exam(int cId)
+        {
+            int r = 0;
+            Dictionary<string, object> map = new Dictionary<string, object>();
+            map["@cId"] = cId;
+            map["@numOfTrueFalse"] = 3;
+            map["@numOfMCQ"] = 3;
+            r = dBmanager.ExecuteNonQueryWithOutParm("generate_Exam", map);
+            return r;
+        }
 
 
         public static DataTable getDepratmentStudents(int id)

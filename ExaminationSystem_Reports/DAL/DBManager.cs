@@ -83,6 +83,45 @@ namespace DAL
             return R;
         }
 
+
+        public int ExecuteNonQueryWithOutParm(string SPName, Dictionary<string, object> Parms)
+        {
+            int R = -1;
+            try
+            {
+
+                sqlCmd.Parameters.Clear();
+
+                foreach (var item in Parms)
+                    sqlCmd.Parameters.Add(new SqlParameter(item.Key, item.Value));
+
+                var returnParameter = sqlCmd.Parameters.Add("@eId", SqlDbType.Int);
+                returnParameter.Direction = ParameterDirection.Output;
+
+                sqlCmd.CommandText = SPName;
+
+                if (sqlCn.State == ConnectionState.Closed)
+                    sqlCn.Open();
+
+                sqlCmd.ExecuteNonQuery();
+                var result = returnParameter.Value;
+                sqlCn.Close();
+               
+                return Convert.ToInt32(result);
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return 0;
+        }
+
+
+
+
         public object ExecuteScaler(string SPName)
         {
             object R = new object();
