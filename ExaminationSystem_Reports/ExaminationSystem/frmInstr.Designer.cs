@@ -48,10 +48,15 @@ namespace ExaminationSystem
             this.txtTopic = new System.Windows.Forms.TextBox();
             this.courseCombo2 = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cmbModelAnswer = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtQDescription = new System.Windows.Forms.TextBox();
             this.grpOptions = new System.Windows.Forms.GroupBox();
             this.lblChoice4 = new System.Windows.Forms.Label();
             this.txtChoice4 = new System.Windows.Forms.TextBox();
             this.lblChoice3 = new System.Windows.Forms.Label();
+            this.btnAddQuestion = new System.Windows.Forms.Button();
             this.txtChoice3 = new System.Windows.Forms.TextBox();
             this.lblChoice2 = new System.Windows.Forms.Label();
             this.txtChoice2 = new System.Windows.Forms.TextBox();
@@ -59,13 +64,8 @@ namespace ExaminationSystem
             this.txtChoice1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbQuestionType = new System.Windows.Forms.ComboBox();
-            this.btnAddQuestion = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCourseName = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtQDescription = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbModelAnswer = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -152,6 +152,7 @@ namespace ExaminationSystem
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(50, 30);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -193,7 +194,7 @@ namespace ExaminationSystem
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(200, 94);
+            this.label1.Location = new System.Drawing.Point(202, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 25);
             this.label1.TabIndex = 3;
@@ -202,20 +203,22 @@ namespace ExaminationSystem
             // courseCombo
             // 
             this.courseCombo.FormattingEnabled = true;
-            this.courseCombo.Location = new System.Drawing.Point(463, 98);
+            this.courseCombo.Location = new System.Drawing.Point(398, 98);
             this.courseCombo.Name = "courseCombo";
-            this.courseCombo.Size = new System.Drawing.Size(121, 21);
+            this.courseCombo.Size = new System.Drawing.Size(121, 29);
             this.courseCombo.TabIndex = 2;
             this.courseCombo.Text = "Course Name";
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(310, 200);
+            this.btnGenerate.BackColor = System.Drawing.Color.White;
+            this.btnGenerate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Location = new System.Drawing.Point(315, 272);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(152, 23);
+            this.btnGenerate.Size = new System.Drawing.Size(125, 50);
             this.btnGenerate.TabIndex = 1;
             this.btnGenerate.Text = "Generate Exam";
-            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.button7_Click);
             // 
             // tabPage3
@@ -236,7 +239,7 @@ namespace ExaminationSystem
             // 
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(109, 142);
+            this.label2.Location = new System.Drawing.Point(109, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 25);
             this.label2.TabIndex = 11;
@@ -254,19 +257,20 @@ namespace ExaminationSystem
             // 
             // btnAddTopic
             // 
+            this.btnAddTopic.BackColor = System.Drawing.Color.White;
             this.btnAddTopic.Location = new System.Drawing.Point(295, 231);
             this.btnAddTopic.Name = "btnAddTopic";
-            this.btnAddTopic.Size = new System.Drawing.Size(121, 37);
+            this.btnAddTopic.Size = new System.Drawing.Size(125, 50);
             this.btnAddTopic.TabIndex = 9;
             this.btnAddTopic.Text = "Add Topic";
-            this.btnAddTopic.UseVisualStyleBackColor = true;
+            this.btnAddTopic.UseVisualStyleBackColor = false;
             this.btnAddTopic.Click += new System.EventHandler(this.btnAddTopic_Click);
             // 
             // txtTopic
             // 
             this.txtTopic.Location = new System.Drawing.Point(295, 148);
             this.txtTopic.Name = "txtTopic";
-            this.txtTopic.Size = new System.Drawing.Size(286, 20);
+            this.txtTopic.Size = new System.Drawing.Size(286, 27);
             this.txtTopic.TabIndex = 7;
             // 
             // courseCombo2
@@ -274,7 +278,7 @@ namespace ExaminationSystem
             this.courseCombo2.FormattingEnabled = true;
             this.courseCombo2.Location = new System.Drawing.Point(295, 85);
             this.courseCombo2.Name = "courseCombo2";
-            this.courseCombo2.Size = new System.Drawing.Size(121, 21);
+            this.courseCombo2.Size = new System.Drawing.Size(121, 29);
             this.courseCombo2.TabIndex = 3;
             this.courseCombo2.Text = "Course Name";
             // 
@@ -295,6 +299,44 @@ namespace ExaminationSystem
             this.tabPage4.Size = new System.Drawing.Size(795, 413);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Add New Question";
+            // 
+            // cmbModelAnswer
+            // 
+            this.cmbModelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbModelAnswer.FormattingEnabled = true;
+            this.cmbModelAnswer.Location = new System.Drawing.Point(241, 146);
+            this.cmbModelAnswer.Name = "cmbModelAnswer";
+            this.cmbModelAnswer.Size = new System.Drawing.Size(140, 28);
+            this.cmbModelAnswer.TabIndex = 23;
+            this.cmbModelAnswer.Text = "Model Answer";
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(39, 145);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(165, 25);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Model Answer";
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(39, 108);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(165, 25);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Question ";
+            // 
+            // txtQDescription
+            // 
+            this.txtQDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQDescription.Location = new System.Drawing.Point(241, 109);
+            this.txtQDescription.Name = "txtQDescription";
+            this.txtQDescription.Size = new System.Drawing.Size(492, 27);
+            this.txtQDescription.TabIndex = 20;
             // 
             // grpOptions
             // 
@@ -341,6 +383,17 @@ namespace ExaminationSystem
             this.lblChoice3.Size = new System.Drawing.Size(160, 25);
             this.lblChoice3.TabIndex = 22;
             this.lblChoice3.Text = "Choice #3";
+            // 
+            // btnAddQuestion
+            // 
+            this.btnAddQuestion.BackColor = System.Drawing.Color.White;
+            this.btnAddQuestion.Location = new System.Drawing.Point(226, 187);
+            this.btnAddQuestion.Name = "btnAddQuestion";
+            this.btnAddQuestion.Size = new System.Drawing.Size(213, 47);
+            this.btnAddQuestion.TabIndex = 16;
+            this.btnAddQuestion.Text = "Add New Question";
+            this.btnAddQuestion.UseVisualStyleBackColor = false;
+            this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
             // 
             // txtChoice3
             // 
@@ -407,16 +460,6 @@ namespace ExaminationSystem
             this.cmbQuestionType.Text = "Question Type";
             this.cmbQuestionType.SelectedIndexChanged += new System.EventHandler(this.cmbQuestionType_SelectedIndexChanged);
             // 
-            // btnAddQuestion
-            // 
-            this.btnAddQuestion.Location = new System.Drawing.Point(226, 187);
-            this.btnAddQuestion.Name = "btnAddQuestion";
-            this.btnAddQuestion.Size = new System.Drawing.Size(213, 47);
-            this.btnAddQuestion.TabIndex = 16;
-            this.btnAddQuestion.Text = "Add New Question";
-            this.btnAddQuestion.UseVisualStyleBackColor = true;
-            this.btnAddQuestion.Click += new System.EventHandler(this.btnAddQuestion_Click);
-            // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.White;
@@ -436,44 +479,6 @@ namespace ExaminationSystem
             this.cmbCourseName.Size = new System.Drawing.Size(140, 28);
             this.cmbCourseName.TabIndex = 12;
             this.cmbCourseName.Text = "Course Name";
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 25);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Question ";
-            // 
-            // txtQDescription
-            // 
-            this.txtQDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQDescription.Location = new System.Drawing.Point(241, 109);
-            this.txtQDescription.Name = "txtQDescription";
-            this.txtQDescription.Size = new System.Drawing.Size(492, 27);
-            this.txtQDescription.TabIndex = 20;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(39, 145);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(165, 25);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Model Answer";
-            // 
-            // cmbModelAnswer
-            // 
-            this.cmbModelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbModelAnswer.FormattingEnabled = true;
-            this.cmbModelAnswer.Location = new System.Drawing.Point(241, 146);
-            this.cmbModelAnswer.Name = "cmbModelAnswer";
-            this.cmbModelAnswer.Size = new System.Drawing.Size(140, 28);
-            this.cmbModelAnswer.TabIndex = 23;
-            this.cmbModelAnswer.Text = "Model Answer";
             // 
             // frmInstr
             // 
