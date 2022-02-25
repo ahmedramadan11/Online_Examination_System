@@ -148,7 +148,7 @@ namespace BLL
             Dictionary<string, object> map = new Dictionary<string, object>();
             map["@cId"] = cId;
             map["@numOfTrueFalse"] = 3;
-            map["@numOfMCQ"] = 3;
+            map["@numOfMCQ"] = 7;
             r = dBmanager.ExecuteNonQueryWithOutParm("generate_Exam", map);
             return r;
         }

@@ -112,6 +112,8 @@ namespace ExaminationSystem
                 UserManager.Insert_Student_EXAM_Course(studId,examId, cId);
             }
 
+            frmInstr_Load(this, new EventArgs());
+
         }
 
         private void button5_Click(object sender, EventArgs e)
