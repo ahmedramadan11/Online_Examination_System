@@ -1,3 +1,4 @@
+create database OnlineExamination;
 
 create table _User(
 
@@ -13,7 +14,7 @@ create table _User(
 
 create table Department(
 
-	DID int primary key identity(100, 1),
+	DID int primary key identity,
 	Dname varchar(20),
 	Manager_ID int
 );
@@ -44,7 +45,7 @@ ALTER TABLE Department
 
 create table Course(
 
-	CID int primary key identity(200, 1),
+	CID int primary key identity,
 	Cname varchar(20),
 	Cduration int
 );
@@ -59,7 +60,7 @@ create table Topic(
 
 create table Question(
 
-	QID int primary key identity(300, 1),
+	QID int primary key identity,
 	QDescription varchar(max),
 	QType char,
 	Model_Answer char,
@@ -78,7 +79,7 @@ create table Choices(
 
 create table Exam(
 
-	EID int primary key identity(1000, 1),
+	EID int primary key,
 	Eduration int,
 	Exam_Date date
 );
@@ -136,12 +137,7 @@ create table Stud_Exam_Ques(
 
 );
 
-
-create database OnlineExamination;
-
-
-
 USE MASTER
 go
-DROP DATABASE OnlineExamination;
+DROP DATABASE OnlineExamination
 go
