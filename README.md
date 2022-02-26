@@ -48,13 +48,13 @@ password: 123456789
 
 
 # EERD 
-![ERD](ERD & Mapping/ERD%20Final%20Version.png)
+![ERD](ERD%20&%20Mapping/ERD%20Final%20Version.png)
 
 
 # prepare DEV-environment
-run sql scripts in folder `./DB_Scripts`
-run sql scripts in folder `./Data`
-run sql scripts in folder `./Stored Procedures`
+- run sql scripts in folder `./DB_Scripts`
+- run sql scripts in folder `./Data`
+- run sql scripts in folder `./Stored Procedures`
 
 this will 
 - Create database `Online-Examination`
