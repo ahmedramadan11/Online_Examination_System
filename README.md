@@ -5,7 +5,7 @@ project for adv-database-systems course in ITI
 - Ahmed Sayed Ibrahim
 - Ahmed Ramadan
 - Mohammed Hussien
-- Mostafa
+- Mostafa Fathy
 
 
 ## database dictionay
