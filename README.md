@@ -38,7 +38,7 @@ Desktop application for managing examinations, the student can take anexam and a
 <img alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/arc.png">
 
 ## 🏛 DataBase Diagram :
-<img alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/digram.bmp">
+<img width="800" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/digram.bmp">
 
 # 👷🏽 Contributors
 * [Ahmed Ramadan](https://github.com/ahmedramadan11)
