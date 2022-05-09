@@ -16,11 +16,36 @@ Desktop application for managing examinations, the student can take anexam and a
 
 ## 📱 Screenshots 
 
-<img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/1.bmp"><img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/2.bmp">
+<img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/1.bmp">
+<img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/2.bmp">
 <img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/3.bmp">
 <img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/4.bmp">
 <img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/5.bmp">
 <img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/6.bmp">
 <img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/7.bmp">
-<img width="400" alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/8.bmp">
+
+## 🛠 Requirements
+ * .Net Framework 4.5
+ * Sql server installed and Tsql
+ * Visual studio To Run the APP
+
+## ⚡ Technologies and Libraries 
+* .Net FrameWork
+* Ado .Net
+* Tsql
+* Crystal Reports
+
+## 🏛 Architecture : 
+<img alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/arc.png">
+
+## 🏛 DataBase Diagram :
+<img alt="Screen Shot 2020-09-04 at 2 48 55 PM" src="/Images/digram.bmp">
+
+# 👷🏽 Contributors
+* [Ahmed Ramadan](https://github.com/ahmedramadan11)
+* [Mohamed Hussein](https://github.com/mohamedhussein8)
+* [Ahmed Sayed](https://github.com/Berserk132)
+* [Mostafa Fathy](https://github.com/mostafa-fathy-mostafa)
+
+
 
