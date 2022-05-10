@@ -7,7 +7,7 @@ Desktop application for managing examinations, the student can take anexam and a
 
 - [1] You can login as student or instructor
 - [2] Student can see all his grade
-- [3] Student Can take Exams
+- [3] Student can take Exams
 - [4] Instructor can generate exam.
 - [5] Instructor can add question
 - [6] Instructor can add topic
